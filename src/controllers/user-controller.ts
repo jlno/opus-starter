@@ -1,5 +1,5 @@
-import { Model, Types } from 'mongoose';
 import { User } from '../models/user';
+import { UserDAO } from '../dao/user-dao';
 
 /**
  * UserController
@@ -7,24 +7,26 @@ import { User } from '../models/user';
 export class UserController {
 
   /**
-   * getUserModel
+   * getUserDAO
    */
-  getUserModel(): Model<any> {
-    return new User().getModelForClass(User);
+  private getUserDAO(): UserDAO {
+    return new UserDAO();
   }
 
   /**
    * findAll
    */
   async findAll(): Promise<User[]> {
-    return await this.getUserModel().find();
+    return await this.getUserDAO().find();
   }
 
   /**
    * search
+   * 
+   * @param id 
    */
   async search(id: string): Promise<User> {
-    return await this.getUserModel().findById(id);
+    return await this.getUserDAO().findById(id);
   }
 
   /**
@@ -33,9 +35,7 @@ export class UserController {
    * @param userDTO 
    */
   async save(data: User): Promise<User> {
-    const User = this.getUserModel();
-    const newUser = new User(data);
-    return await newUser.save();
+    return await this.getUserDAO().save(data);
   }
 
   /**
@@ -44,7 +44,7 @@ export class UserController {
    * @param userDTO 
    */
   async update(id: string, data: User): Promise<any> {
-    return await this.getUserModel().updateOne({ _id: id }, data);
+    return await this.getUserDAO().update(id, data);
   }
 
   /**
@@ -53,8 +53,7 @@ export class UserController {
    * @param id 
    */
   async remove(id: string): Promise<any> {
-    const target = await this.search(id);
-    return await this.getUserModel().deleteOne(target);
+    return await this.getUserDAO().remove(id);
   }
 
 }
