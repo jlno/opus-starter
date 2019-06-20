@@ -24,8 +24,7 @@ export class UserService {
   @get()
   async findAll(request: Request, response: Response): Promise<void> {
     try {
-      const users = await this.getController()
-        .findAll();
+      const users = await this.getController().findAll();
 
       response.send(users);
 
@@ -43,8 +42,7 @@ export class UserService {
   @get('/:id')
   async search(request: Request, response: Response): Promise<void> {
     try {
-      const user = await this.getController()
-        .search(request.params.id);
+      const user = await this.getController().search(request.params.id);
 
       response.send(user);
 
@@ -62,8 +60,7 @@ export class UserService {
   @post()
   async save(request: Request, response: Response): Promise<void> {
     try {
-      const user = await this.getController()
-        .save(request.body);
+      const user = await this.getController().save(request.body);
 
       response.send(user);
 
@@ -81,8 +78,7 @@ export class UserService {
   @put('/:id')
   async update(request: Request, response: Response): Promise<void> {
     try {
-      const user = await this.getController()
-        .update(request.params.id, request.body);
+      const user = await this.getController().update(request.params.id, request.body);
 
       response.send(user);
 
@@ -100,8 +96,7 @@ export class UserService {
   @del('/:id')
   async remove(request: Request, response: Response): Promise<void> {
     try {
-      const user = await this.getController()
-        .remove(request.params.id);
+      const user = await this.getController().remove(request.params.id);
 
       response.send(user);
 
