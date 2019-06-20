@@ -5,12 +5,12 @@ import { prop, Typegoose } from 'typegoose';
  */
 export class User extends Typegoose {
 
-    _id: string;
+  _id: string;
 
-    @prop({ required: true })
-    name: string;
+  @prop({ required: true })
+  name: string;
 
-    @prop()
-    age: number;
+  @prop()
+  age: number;
 
 }
