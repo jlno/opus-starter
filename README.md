@@ -38,11 +38,3 @@ class User extends Typegoose {
 
 }
 ```
-
-## Main
-```typescript
-Express.getApp().listen(3000, () => {
-  new Database();
-  new UserService();
-});
-```
