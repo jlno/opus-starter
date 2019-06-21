@@ -8,9 +8,17 @@
     "build": "tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlno/opus-starter.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlno/opus-starter/issues"
+  },
+  "homepage": "https://github.com/jlno/opus-starter#readme",
   "dependencies": {
     "@types/body-parser": "^1.17.0",
     "@types/express": "^4.16.1",
