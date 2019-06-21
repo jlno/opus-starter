@@ -14,7 +14,7 @@ app.get('/user', function (req, res) {
 To:
 ```typescript
 @path('/user')
-export class UserService {
+class UserService {
 
   @get()
   async findAll(request: Request, response: Response): Promise<void> {
