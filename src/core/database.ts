@@ -5,16 +5,16 @@ const database = 'hellodb';
 
 export class Database {
   constructor() {
-    this._connect()
+    this._connect();
   }
 
   _connect() {
     mongoose.connect(`mongodb://${server}/${database}`, { useNewUrlParser: true })
       .then(() => {
-        console.log('Database connection successful')
+        console.log('Database connection successful');
       })
       .catch(err => {
-        console.error('Database connection error')
+        console.error('Database connection error:', err);
       })
   }
 }
