@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/dLeU6gJ.png" />
+<img src="https://i.imgur.com/ZUSKoe6.png" />
 
 ## Routing
 * path()
