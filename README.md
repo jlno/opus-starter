@@ -35,7 +35,7 @@ class User extends Typegoose {
   @prop({ required: true })	
   name: string;
 
-   @prop()
+  @prop()
   age: number;
 
  }
