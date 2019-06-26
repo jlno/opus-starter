@@ -1,15 +1,14 @@
 import mongoose from 'mongoose';
-
-const server = '127.0.0.1:27017';
-const database = 'hellodb';
+import { DB_HOST, DB_NAME } from '../config';
 
 export class Database {
+
   constructor() {
-    this._connect();
+    this.connect();
   }
 
-  _connect() {
-    mongoose.connect(`mongodb://${server}/${database}`, { useNewUrlParser: true })
+  connect(): void {
+    mongoose.connect(`mongodb://${DB_HOST}/${DB_NAME}`, { useNewUrlParser: true })
       .then(() => {
         console.log('Database connection successful');
       })
@@ -17,4 +16,5 @@ export class Database {
         console.error('Database connection error:', err);
       })
   }
+
 }
