@@ -1,5 +1,3 @@
-<img src="https://i.imgur.com/ZUSKoe6.png" />
-
 ## Routing
 * path()
 * get()
