@@ -4,9 +4,9 @@ import { User } from '../models/user';
 export class UserDAO {
 
   /**
-   * getUserModel
+   * model
    */
-  private getUserModel(): Model<any> {
+  private get model(): Model<any> {
     return new User().getModelForClass(User);
   }
 
@@ -16,7 +16,7 @@ export class UserDAO {
    * @param conditions 
    */
   async find(conditions?: any): Promise<User[]> {
-    return await this.getUserModel().find(conditions);
+    return await this.model.find(conditions);
   }
 
   /**
@@ -25,7 +25,7 @@ export class UserDAO {
    * @param id 
    */
   async findById(id: string): Promise<User> {
-    return await this.getUserModel().findById(id);
+    return await this.model.findById(id);
   }
 
   /**
@@ -34,9 +34,9 @@ export class UserDAO {
    * @param data 
    */
   async save(data: User): Promise<User> {
-    const User = this.getUserModel();
-    const newUser = new User(data);
-    return await newUser.save();
+    const Model = this.model;
+    const content = new Model(data);
+    return await content.save();
   }
 
   /**
@@ -46,7 +46,7 @@ export class UserDAO {
    * @param data 
    */
   async update(id: string, data: User): Promise<any> {
-    return await this.getUserModel().updateOne({ _id: id }, data);
+    return await this.model.updateOne({ _id: id }, data);
   }
 
   /**
@@ -55,7 +55,7 @@ export class UserDAO {
    * @param id 
    */
   async remove(id: string): Promise<any> {
-    return await this.getUserModel().deleteOne({ _id: id });
+    return await this.model.deleteOne({ _id: id });
   }
 
 }

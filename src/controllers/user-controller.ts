@@ -1,5 +1,6 @@
-import { User } from '../models/user';
+import { inject } from '../core/decorators';
 import { UserDAO } from '../dao/user-dao';
+import { User } from '../models/user';
 
 /**
  * UserController
@@ -7,17 +8,16 @@ import { UserDAO } from '../dao/user-dao';
 export class UserController {
 
   /**
-   * getUserDAO
+   * userDAO
    */
-  private getUserDAO(): UserDAO {
-    return new UserDAO();
-  }
+  @inject
+  private userDAO: UserDAO;
 
   /**
    * findAll
    */
   async findAll(): Promise<User[]> {
-    return await this.getUserDAO().find();
+    return await this.userDAO.find();
   }
 
   /**
@@ -26,7 +26,7 @@ export class UserController {
    * @param id 
    */
   async search(id: string): Promise<User> {
-    return await this.getUserDAO().findById(id);
+    return await this.userDAO.findById(id);
   }
 
   /**
@@ -35,7 +35,7 @@ export class UserController {
    * @param userDTO 
    */
   async save(data: User): Promise<User> {
-    return await this.getUserDAO().save(data);
+    return await this.userDAO.save(data);
   }
 
   /**
@@ -44,7 +44,7 @@ export class UserController {
    * @param userDTO 
    */
   async update(id: string, data: User): Promise<any> {
-    return await this.getUserDAO().update(id, data);
+    return await this.userDAO.update(id, data);
   }
 
   /**
@@ -53,7 +53,7 @@ export class UserController {
    * @param id 
    */
   async remove(id: string): Promise<any> {
-    return await this.getUserDAO().remove(id);
+    return await this.userDAO.remove(id);
   }
 
 }
