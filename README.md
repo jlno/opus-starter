@@ -2,6 +2,7 @@
 <img src="https://travis-ci.org/jlno/opus-starter.svg?branch=master" />
 
 ## Routing
+Was created custom decorators for map application endpoints (URIs) to client requests:
 * path()
 * get()
 * post()
@@ -19,6 +20,7 @@ class UserService {
 }
 ```
 ## Inject
+Creates a instance of the variable type.
 ```typescript
 export class UserController {
 
@@ -29,8 +31,10 @@ export class UserController {
 ```
 
 ## Model
+The MongoDB schema definition.
 ```typescript
 class User extends Typegoose {
+
    _id: string;
 
   @prop({ required: true })	
