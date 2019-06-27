@@ -1,4 +1,5 @@
 <img src="https://i.imgur.com/QbnHjRQ.png" />
+<img src="https://travis-ci.org/jlno/opus-starter.svg?branch=master" />
 
 ## Routing
 * path()
