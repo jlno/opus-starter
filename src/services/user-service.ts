@@ -77,9 +77,9 @@ export class UserService {
   @put('/:id')
   async update(request: Request, response: Response): Promise<void> {
     try {
-      const user = await this.userController.update(request.params.id, request.body);
+      const result = await this.userController.update(request.params.id, request.body);
 
-      response.send(user);
+      response.send(result);
 
     } catch (e) {
       response.status(500).send(e);
@@ -95,9 +95,9 @@ export class UserService {
   @del('/:id')
   async remove(request: Request, response: Response): Promise<void> {
     try {
-      const user = await this.userController.remove(request.params.id);
+      const result = await this.userController.remove(request.params.id);
 
-      response.send(user);
+      response.send(result);
 
     } catch (e) {
       response.status(500).send(e);
