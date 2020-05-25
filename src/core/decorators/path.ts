@@ -1,19 +1,17 @@
 import { Express } from '../express';
 
-export function path(value: string): Function {
+export function _path(value: string): Function {
   return (ref: Function) => {
-
-    const pathList: any[] = Express.getPathList(ref.prototype);
+    let pathList: any[] = Express.getPathList(ref.prototype);
 
     if (pathList) {
+      pathList = pathList.reverse();
 
-      pathList.forEach(item => {
-        item.attach(
-          () => ref.prototype, value + item.path);
-      });
-
+      while (pathList.length > 0) {
+        const item = pathList.splice(0, 1).pop();
+        item.attach(() => ref.prototype, value + item.path);
+      }
+      Express.setPathList(ref.prototype, []);
     }
-
   };
-
 }
