@@ -1,6 +1,6 @@
 import { Express } from '../express';
 
-export function _path(value: string): Function {
+export function path(value: string): Function {
   return (ref: Function) => {
     let pathList: any[] = Express.getPathList(ref.prototype);
 
